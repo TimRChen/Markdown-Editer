@@ -1,42 +1,51 @@
 import React from 'react';
-import styles from './App.css';
+import {markdown} from 'markdown';
+import '../../node_modules/bulma/css/bulma.css';
 
-//  extends 继承React.PureComponent 所有属性和方法
+
 export default class App extends React.PureComponent {
     constructor(props) {
-        // super 子类继承父类this对象
         super(props);
         this.state = {
-            date: new Date()
+            mdText: '',
+            htmlText: ''
         };
     }
 
-    componentDidMount() {
-        this.timeID = setInterval(() => {
-            return this.tick();
-        }, 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timeID);
-    }
-
-    tick() {
+    mdParse(event) {
+        let value = event.target.value;
+        let htmlText = markdown.toHTML(value)
         this.setState({
-            date: new Date()
+            mdText: value,
+            htmlText: htmlText
         });
-    }
-
-    handleClick(e) {
-        e.preventDefault();
-        console.log('The link was clicked.');
     }
 
     render() {
         return (
-            <div className={styles.app}>
-                <h2>{this.state.date.toLocaleTimeString()}</h2>
-                <a href="#" onClick={this.handleClick.bind(this)}>Click me!</a>
+            <div className="body">
+                <section className="hero is-dark">
+                <div className="hero-body">
+                    <div className="container">
+                    <h1 className="title">
+                        Markdown paser
+                    </h1>
+                    <h2 className="subtitle">
+                        author by timrchen.
+                    </h2>
+                    </div>
+                </div>
+                </section>
+                <div className="columns">
+                    <div className="column">
+                        <textarea cols="30" rows="10" className="textarea is-dark" value={this.state.mdText} onChange={this.mdParse.bind(this)}></textarea>
+                    </div>
+                    <div className="column">
+                        <div className="preview">
+                            {this.state.htmlText}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
