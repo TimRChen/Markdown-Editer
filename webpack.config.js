@@ -1,7 +1,7 @@
 const path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+let webpack = require('webpack');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = {
@@ -9,40 +9,23 @@ module.exports = {
 
     entry: [
         'react-hot-loader/patch',
-        // activate HMR for React
-
         'webpack-dev-server/client?http://localhost:8080',
-        // bundle the client for webpack-dev-server
-        // and connect to the provided endpoint
-
         'webpack/hot/only-dev-server',
-        // bundle the client for hot reloading
-        // only- means to only hot reload for successful updates
-
         './index.js'
         // the entry point of our app
     ],
     output: {
         filename: 'bundle.js',
-        // the output bundle
-
         path: path.resolve(__dirname, 'dist'),
-
         publicPath: '/'
-        // necessary for HMR to know where to load the hot update chunks
     },
 
     devtool: 'source-map',
 
     devServer: {
         hot: true,
-        // enable HMR on the server
-
         contentBase: path.resolve(__dirname, 'dist'),
-        // match the output path
-
         publicPath: '/'
-        // match the output `publicPath`
     },
 
     module: {

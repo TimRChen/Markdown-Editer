@@ -12,7 +12,6 @@
   "author": "timrchen",
   "license": "MIT",
   "dependencies": {
-    "bulma": "^0.4.3",
     "markdown": "^0.5.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"

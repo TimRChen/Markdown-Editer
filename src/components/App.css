@@ -1,0 +1,17 @@
+.body {
+    padding: 30px;
+    margin: 40px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.content .text-preview {
+    border: 1px solid #e2e2e2;
+    min-width: 50%;
+    word-wrap: break-word;
+}
