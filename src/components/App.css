@@ -10,8 +10,15 @@
     flex-direction: row;
 }
 
+.content .text-input textarea {
+    outline: none;
+    resize: none;
+    border: 1px dashed #e2e2e2;
+}
+
 .content .text-preview {
-    border: 1px solid #e2e2e2;
+    border: 1px dashed #e2e2e2;
+    padding: 10px;
     min-width: 50%;
     word-wrap: break-word;
 }

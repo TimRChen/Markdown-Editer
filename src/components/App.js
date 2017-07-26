@@ -91,7 +91,7 @@ export default class App extends React.PureComponent {
 
                 <div className="content">
                     <div className="text-input">
-                        <textarea cols="60" className="text-primary" rows="10" wrap="hard" value={this.state.mdText} onInput={this.mdParse.bind(this)} placeholder="** 在此处输入Markdown文档 **"></textarea>
+                        <textarea cols="60" className="text-danger" rows="12" wrap="hard" value={this.state.mdText} onInput={this.mdParse.bind(this)} placeholder="** 在此处输入Markdown文档 **"></textarea>
                     </div>
                     <div className="text-preview">
                         <div dangerouslySetInnerHTML={{__html: this.state.htmlText}}></div>
